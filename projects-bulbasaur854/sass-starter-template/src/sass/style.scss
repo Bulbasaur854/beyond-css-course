@@ -52,3 +52,66 @@ body {
     width: min(100% - 2rem, 60rem);
     margin-inline: auto;
 }
+
+.page-title {
+    color: $color-primary-400;
+    font-size: $fs-900;
+    margin-block: $size-32; // will not be added normally - taken from Figma file
+}
+
+.pricing-plans {
+    border: $size-8 solid $color-primary-400;
+    display: flex; // will normally use grid - this is for simplicity
+}
+
+.tier {
+    flex: 1;
+    padding: $size-36;
+    display: grid;
+    gap: $size-20;
+
+    &__title {
+        text-transform: uppercase;
+        font-weight: $fw-700;
+        color: $color-primary-400;
+    }
+
+    &__feature-list {
+        list-style: none;
+    }
+
+    &__list-item {
+        &:not(:last-child)::after {
+            content: "";
+            display: block;
+            height: 1px;
+            margin-block: $size-20;
+            background-color: $color-neutral-900;
+            opacity: 0.2;
+        }
+    }
+
+    &__price {
+        font-size: $fs-800;
+        font-weight: $fw-700;
+
+        // no '&' due to it being decedent
+        span {
+            font-size: $fs-600;
+            font-weight: $fw-400;
+        }
+    }
+}
+
+// not nesting the button as it should be an independant component
+.button {
+    cursor: pointer;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: $fw-700;
+    color: $color-neutral-100;
+    background-color: $color-primary-400;
+    padding: 1em 1.5em; // use 'em' so if we change font size the padding will adjust to it
+
+    justify-self: center; // fixes buttons streching due to grid
+}
