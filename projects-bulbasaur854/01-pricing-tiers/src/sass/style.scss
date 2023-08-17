@@ -74,6 +74,11 @@ body {
         text-transform: uppercase;
         font-weight: $fw-700;
         color: $color-primary-400;
+
+        // for inverted colors
+        .inverted & {
+            color: $color-neutral-100;
+        }
     }
 
     &__feature-list {
@@ -114,4 +119,22 @@ body {
     padding: 1em 1.5em; // use 'em' so if we change font size the padding will adjust to it
 
     justify-self: center; // fixes buttons streching due to grid
+
+    // will normally make this a seperate class
+    .inverted & {
+        color: $color-primary-400;
+        background-color: $color-neutral-100;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color-neutral-100;
+        background-color: rgb($color-neutral-900, 0.7);
+    }
+}
+
+// utility class to for inverted color scheme
+.inverted {
+    background-color: $color-primary-400;
+    color: $color-neutral-100;
 }
